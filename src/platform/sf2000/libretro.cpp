@@ -80,7 +80,7 @@ void retro_set_environment(retro_environment_t cb) {
 
     struct retro_variable vars[] = {
         { "openlara_draw_distance", "Draw Distance; Short|Very Short|Ultra Short|Extreme|Medium|Default|Long" },
-        { "openlara_resolution", "Resolution; 50%|75%|100%|25%" },
+        { "openlara_resolution", "Resolution; 100%|75%|50%|25%" },
         { "openlara_framerate", "Framerate; 30 FPS|15 FPS (Frameskip)" },
         { "openlara_dither", "Dither Filter; Disabled|Enabled" },
         { "openlara_audio", "Audio; Enabled|Disabled" },
@@ -179,7 +179,7 @@ void update_settings() {
         else if (strcmp(var.value, "50%") == 0) { current_width = 160; current_height = 120; }
         else if (strcmp(var.value, "25%") == 0) { current_width = 80; current_height = 60; }
     } else {
-        current_width = 160; current_height = 120; // Default to 50% for performance
+        current_width = 320; current_height = 240; // Default to 100%
     }
     
     Core::width = current_width;
@@ -225,11 +225,11 @@ bool retro_load_game(const struct retro_game_info *info) {
             char *last_slash = strrchr(level_path, '/');
             if (last_slash) {
                 *last_slash = '\0';
-                strcat(level_path, "/level1.phd");
+                strcat(level_path, "/LEVEL1.PHD");
             }
         }
     } else {
-        snprintf(level_path, sizeof(level_path), "/mnt/sda1/roms/GBA/level1.phd");
+        snprintf(level_path, sizeof(level_path), "/mnt/sda1/roms/GBA/LEVEL1.PHD");
     }
 
     if (log_cb) log_cb(RETRO_LOG_INFO, "[OpenLara] Loading level: %s\n", level_path);

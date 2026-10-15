@@ -6,7 +6,7 @@ The original software renderer struggled with performance and visual glitches on
 ## Key Features
 * Fully working Z-buffer (depth sorting is fixed).
 * Hardware-specific optimizations (using CPU registers instead of slow RAM reads) to keep the framerate playable.
-* Default resolution locked at 50% for optimal performance.
+* Default resolution is 100% (320x240); lower resolutions remain available for performance.
 * Pre-configured controls for the SF2000/GB300 layout.
 
 ## Controls
